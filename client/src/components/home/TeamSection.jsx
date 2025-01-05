@@ -79,7 +79,9 @@ const TeamSection = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 {member.name}
               </h3>
-              <p className="text-primary-600 font-medium mb-3">{member.role}</p>
+              <p className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent font-medium mb-3">
+                {member.role}
+              </p>
               <div className="flex items-center justify-center gap-2 text-gray-600 mb-4">
                 <GraduationCap size={18} className="text-primary-500" />
                 <span className="text-sm">

@@ -39,8 +39,10 @@ const Header = () => {
         <nav className="flex items-center justify-between">
           <div
             onClick={() => scrollToSection("hero")}
-            className="text-2xl font-bold text-primary-600 cursor-pointer flex gap-4 justify-center items-center">
-            <div>Code_Busters</div>
+            className="text-2xl font-bold cursor-pointer flex gap-4 justify-center items-center">
+            <div className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+              Code_Busters
+            </div>
           </div>
 
           {/* Desktop Menu */}
@@ -57,7 +59,7 @@ const Header = () => {
             </button>
             <Link
               to="/dashboard"
-              className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors flex items-center gap-2">
+              className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-2 rounded-lg hover:from-pink-600 hover:to-purple-600 transition-colors flex items-center gap-2">
               Get Started
               <ArrowRight size={18} />
             </Link>

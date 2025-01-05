@@ -90,13 +90,13 @@ const EnhancedChatClient = ({ isExpanded, setIsExpanded }) => {
         <Button
           onClick={() => setIsExpanded(true)}
           size="lg"
-          className="rounded-full w-14 h-14 bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all duration-300">
+          className="rounded-full w-14 h-14 bg-gradient-to-r from-pink-500 to-purple-500 shadow-lg hover:shadow-xl transition-all duration-300">
           <MessageCircle className="h-6 w-6 text-white" />
         </Button>
       ) : (
         <div className="relative">
           <Card className="w-[380px] shadow-2xl bg-white">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 bg-blue-600 text-white rounded-t-lg">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-t-lg">
               <CardTitle className="text-lg font-semibold">
                 AI Assistant
               </CardTitle>
@@ -122,7 +122,7 @@ const EnhancedChatClient = ({ isExpanded, setIsExpanded }) => {
                       <div
                         className={`max-w-[80%] rounded-lg px-4 py-2 shadow-sm ${
                           message.type === "user"
-                            ? "bg-blue-600 text-white"
+                            ? "bg-gradient-to-r from-pink-500 to-purple-500 text-white"
                             : "bg-gray-100"
                         }`}>
                         <p className="text-sm">{message.text}</p>
@@ -157,7 +157,7 @@ const EnhancedChatClient = ({ isExpanded, setIsExpanded }) => {
                     onClick={sendMessage}
                     disabled={isLoading || !inputMessage.trim()}
                     size="icon"
-                    className="bg-blue-600 hover:bg-blue-700 transition-colors">
+                    className="bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 transition-colors">
                     <Send className="h-4 w-4 text-white" />
                   </Button>
                 </div>
