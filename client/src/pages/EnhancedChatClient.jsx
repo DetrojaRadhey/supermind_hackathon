@@ -70,7 +70,7 @@ const EnhancedChatClient = ({ isExpanded, setIsExpanded }) => {
       setError(null);
       setMessages((prev) => [...prev, { text: inputMessage, type: "user" }]);
 
-      const response = await fetch("https://supermind-hackathon-ten.vercel.app/chat", {
+      const response = await fetch("https://supermind-hackathon-orpin.vercel.app/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ input_value: inputMessage, requestId }),
