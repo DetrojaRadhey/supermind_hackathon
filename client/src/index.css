@@ -69,6 +69,6 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground; /* `text-foreground` now resolves correctly */
+    @apply bg-background text-foreground; /* text-foreground now resolves correctly */
   }
 }

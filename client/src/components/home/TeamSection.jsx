@@ -112,4 +112,4 @@ const TeamSection = () => {
   );
 };
 
-export default TeamSection;
+export default TeamSection;

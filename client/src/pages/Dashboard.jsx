@@ -457,7 +457,11 @@ const AiGeneratedComparison = ({ data }) => {
             <Legend />
             <Bar dataKey="likes" fill="hsl(335, 95%, 50%)" name="Avg. Likes" />
             <Bar dataKey="shares" fill="hsl(47, 95%, 50%)" name="Avg. Shares" />
+<<<<<<< HEAD
             <Bar dataKey="comments" fill="hsl(267, 95%, 50%)" name="Avg. Comments" />
+=======
+            <Bar dataKey="comments" fill="hsl(267, 95%, 50%)" name="Avg. Comments"/>
+>>>>>>> 3ca4ff7df11c2614faa211c3cd62a23c7f1d23c6
           </BarChart>
         </ResponsiveContainer>
       </CardContent>
@@ -656,7 +660,7 @@ const Dashboard = () => {
         }`}>
         <div className="max-w-7xl mx-auto px-4 py-4">
           <nav className="flex items-center justify-between">
-            <Link
+          <Link
               to={"/"}
               className="text-2xl font-bold cursor-pointer flex gap-4 justify-center items-center">
               <div className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
