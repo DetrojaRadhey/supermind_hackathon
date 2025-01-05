@@ -8,7 +8,15 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/",
+      "dest": "server.js"
+    },
+    {
+      "src": "/chat",
+      "dest": "server.js"
+    },
+    {
+      "src": "/socket.io/(.*)",
       "dest": "server.js"
     }
   ]
