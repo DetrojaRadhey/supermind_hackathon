@@ -457,11 +457,7 @@ const AiGeneratedComparison = ({ data }) => {
             <Legend />
             <Bar dataKey="likes" fill="hsl(335, 95%, 50%)" name="Avg. Likes" />
             <Bar dataKey="shares" fill="hsl(47, 95%, 50%)" name="Avg. Shares" />
-<<<<<<< HEAD
             <Bar dataKey="comments" fill="hsl(267, 95%, 50%)" name="Avg. Comments" />
-=======
-            <Bar dataKey="comments" fill="hsl(267, 95%, 50%)" name="Avg. Comments"/>
->>>>>>> 3ca4ff7df11c2614faa211c3cd62a23c7f1d23c6
           </BarChart>
         </ResponsiveContainer>
       </CardContent>
