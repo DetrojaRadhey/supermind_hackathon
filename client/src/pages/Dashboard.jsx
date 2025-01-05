@@ -432,7 +432,7 @@ const ContentDistributionChart = ({ data }) => {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="count" fill="hsl(var(--chart-1))" />
+            <Bar dataKey="count" fill="hsl(335, 95%, 50%)" />
           </BarChart>
         </ResponsiveContainer>
       </CardContent>
@@ -455,9 +455,9 @@ const AiGeneratedComparison = ({ data }) => {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="likes" fill="hsl(var(--chart-1))" name="Avg. Likes" />
-            <Bar dataKey="shares" fill="hsl(var(--chart-2))" name="Avg. Shares" />
-            <Bar dataKey="comments" fill="hsl(var(--chart-3))" name="Avg. Comments" />
+            <Bar dataKey="likes" fill="hsl(335, 95%, 50%)" name="Avg. Likes" />
+            <Bar dataKey="shares" fill="hsl(47, 95%, 50%)" name="Avg. Shares" />
+            <Bar dataKey="comments" fill="hsl(267, 95%, 50%)" name="Avg. Comments"/>
           </BarChart>
         </ResponsiveContainer>
       </CardContent>
@@ -656,16 +656,18 @@ const Dashboard = () => {
         }`}>
         <div className="max-w-7xl mx-auto px-4 py-4">
           <nav className="flex items-center justify-between">
-            <Link
+          <Link
               to={"/"}
-              className="text-2xl font-bold text-primary-600 cursor-pointer flex gap-4 justify-center items-center">
-              Code_Busters
+              className="text-2xl font-bold cursor-pointer flex gap-4 justify-center items-center">
+              <div className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+                Code_Busters
+              </div>
             </Link>
             <div className="hidden md:flex items-center gap-8">
               <Button
-                className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors flex items-center gap-2"
+                className="bg-gradient-to-r from-pink-500 to-purple-500 text-white px-6 py-2 rounded-lg hover:from-pink-600 hover:to-purple-600 transition-colors flex items-center gap-2"
                 onClick={handleAiButtonClick}>
-                Get Answers with Ai!
+                Get Answers with AI!
               </Button>
             </div>
           </nav>
