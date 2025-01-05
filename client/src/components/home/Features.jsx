@@ -69,7 +69,7 @@ const Features = () => {
               transition={{ delay: index * 0.1 }}
               className="bg-white p-8 rounded-xl border border-gray-100 hover:border-primary-200 shadow-sm hover:shadow-xl transition-all duration-300"
             >
-              <div className="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center text-primary-600 mb-6">
+              <div className="w-14 h-14 bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl flex items-center justify-center text-white mb-6">
                 {feature.icon}
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
