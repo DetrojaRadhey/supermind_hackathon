@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 const express = require('express');
 const http = require('http');
@@ -11,7 +10,11 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://supermind-hackathon-ggwx.vercel.app',
+    methods: ['GET', 'POST'],
+    credentials: true
+}));
 app.use(express.json());
 
 
