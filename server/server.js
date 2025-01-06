@@ -1,49 +1,32 @@
+
 require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const WebSocket = require('ws');
+const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
 const server = http.createServer(app);
-const wss = new WebSocket.Server({ 
-    server,
-    verifyClient: (info) => {
-        const origin = info.origin || info.req.headers.origin;
-        return origin === 'https://supermind-hackathon-ggwx.vercel.app';
-    }
-});
+const wss = new WebSocket.Server({ server });
 
 
-app.use(cors({
-    origin: ['https://supermind-hackathon-ggwx.vercel.app', 'http://localhost:5173'],
-    methods: ['GET', 'POST'],
-    credentials: true
-}));
+app.use(cors());
 app.use(express.json());
 
 
 const connections = new Map();
 
 
-wss.on('error', (error) => {
-    console.error('WebSocket Server Error:', error);
-});
-
 wss.on('connection', (ws) => {
-    console.log('Client connected');
     const requestId = Math.random().toString(36).substring(7);
     connections.set(requestId, ws);
 
-    ws.on('error', (error) => {
-        console.error('WebSocket Error:', error);
-    });
-
     ws.on('close', () => {
-        console.log('Client disconnected');
         connections.delete(requestId);
     });
 
+    
     ws.send(JSON.stringify({ type: 'requestId', requestId }));
 });
 

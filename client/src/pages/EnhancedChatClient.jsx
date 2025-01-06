@@ -36,7 +36,7 @@ const EnhancedChatClient = ({ isExpanded, setIsExpanded }) => {
   }, [isExpanded]);
 
   useEffect(() => {
-    const wsConnection = new WebSocket("wss://8f07-13-51-196-191.ngrok-free.app");
+    const wsConnection = new WebSocket(import.meta.env.VITE_WEBSOCKET_URL);
     wsConnection.onmessage = (event) => {
       const data = JSON.parse(event.data);
       if (data.type === "requestId") {
@@ -70,7 +70,7 @@ const EnhancedChatClient = ({ isExpanded, setIsExpanded }) => {
       setError(null);
       setMessages((prev) => [...prev, { text: inputMessage, type: "user" }]);
 
-      const response = await fetch("https://supermind-hackathon-orpin.vercel.app/chat", {
+      const response = await fetch(import.meta.env.VITE_HTTP_URL , {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ input_value: inputMessage, requestId }),
