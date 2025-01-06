@@ -8,7 +8,6 @@ const EnhancedChatClient = ({ isExpanded, setIsExpanded }) => {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [ws, setWs] = useState(null);
   const [requestId, setRequestId] = useState(null);
   const [error, setError] = useState(null);
   const messagesEndRef = useRef(null);
@@ -35,54 +34,30 @@ const EnhancedChatClient = ({ isExpanded, setIsExpanded }) => {
     }
   }, [isExpanded]);
 
-  useEffect(() => {
-    const wsConnection = new WebSocket(import.meta.env.VITE_WEBSOCKET_URL);
-    wsConnection.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      if (data.type === "requestId") {
-        setRequestId(data.requestId);
-      } else if (data.type === "response") {
-        setMessages((prev) => [
-          ...prev,
-          { text: data.message, type: "response" },
-        ]);
-        setIsLoading(false);
-      } else if (data.type === "error") {
-        setError(data.message);
-        setIsLoading(false);
-      }
-    };
-
-    wsConnection.onerror = () => {
-      setError("WebSocket connection error");
-      setIsLoading(false);
-    };
-
-    setWs(wsConnection);
-    return () => wsConnection.close();
-  }, []);
-
   const sendMessage = useCallback(async () => {
-    if (!inputMessage.trim() || !requestId || isLoading) return;
+    if (!inputMessage.trim() || isLoading) return;
 
     try {
       setIsLoading(true);
       setError(null);
       setMessages((prev) => [...prev, { text: inputMessage, type: "user" }]);
 
-      const response = await fetch(import.meta.env.VITE_HTTP_URL , {
+      const response = await fetch(import.meta.env.VITE_HTTP_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ input_value: inputMessage, requestId }),
+        body: JSON.stringify({ input_value: inputMessage }),
       });
 
       if (!response.ok) throw new Error("Failed to send message");
+      const data = await response.json();
+      setMessages((prev) => [...prev, { text: data.message, type: "response" }]);
       setInputMessage("");
+      setIsLoading(false)
     } catch (err) {
       setError(err.message);
       setIsLoading(false);
     }
-  }, [inputMessage, requestId, isLoading]);
+  }, [inputMessage, isLoading]);
 
   return (
     <div className="fixed bottom-6 right-1 -translate-x-1/2 z-50">

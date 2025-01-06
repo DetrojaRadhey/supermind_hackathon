@@ -1,46 +1,21 @@
-
 require('dotenv').config();
 const express = require('express');
 const http = require('http');
-const WebSocket = require('ws');
 const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
 const server = http.createServer(app);
-const wss = new WebSocket.Server({ server });
-
 
 app.use(cors());
 app.use(express.json());
-
-
-const connections = new Map();
-
-
-wss.on('connection', (ws) => {
-    const requestId = Math.random().toString(36).substring(7);
-    connections.set(requestId, ws);
-
-    ws.on('close', () => {
-        connections.delete(requestId);
-    });
-
-    
-    ws.send(JSON.stringify({ type: 'requestId', requestId }));
-});
 
 app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
 app.post('/chat', async (req, res) => {
-    const { input_value, requestId } = req.body;
-    const ws = connections.get(requestId);
-
-    if (!ws) {
-        return res.status(400).json({ error: 'WebSocket connection not found' });
-    }
+    const { input_value } = req.body;
 
     try {
         const response = await axios.post(
@@ -70,12 +45,8 @@ app.post('/chat', async (req, res) => {
         );
 
         const message = response.data.outputs[0].outputs[0].results.message.text;
-       
-        ws.send(JSON.stringify({ type: 'response', message }));
-        res.json({ status: 'Processing' });
-        
+        res.json({ message });
     } catch (error) {
-        ws.send(JSON.stringify({ type: 'error', message: error.message }));
         res.status(500).json({ error: error.message });
     }
 });
