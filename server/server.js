@@ -7,10 +7,20 @@ const cors = require('cors');
 const app = express();
 const server = http.createServer(app);
 
-// only frontend
+const allowedOrigins = [process.env.FRONTEND_URL];
+
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
+    origin: (origin, callback) => {
+        if (allowedOrigins.includes(origin) || !origin) {
+            callback(null, true); // Allow trusted origins
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true, // Allow cookies if required
 }));
+
 app.use(express.json());
 
 app.get('/', (req, res) => {
