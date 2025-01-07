@@ -1,6 +1,6 @@
 # Social Media Analyzer using Astra DB and Langflow
 
-**Live Demo**: https://supermind-hackathon-six.vercel.app/
+**Live Demo**: https://supermind-hackathon-frontend.vercel.app/
 
 **Problem explaining and solution Video(YouTube)**: https://www.youtube.com/watch?v=fRv3SMbldnA
 
