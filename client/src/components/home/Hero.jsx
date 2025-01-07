@@ -39,7 +39,7 @@ const Hero = () => {
                 <ArrowRight size={18} />
               </Link>
               <Link
-                to="https://youtu.be/TGx_P_ZqODM"
+                to="https://www.youtube.com/watch?v=Hc72QnWlcn8&t=16s"
                 className="inline-flex items-center justify-center gap-2 bg-white text-gray-600 px-8 py-4 rounded-lg hover:bg-gray-50 transition-colors border border-gray-200">
                 Demo Video
               </Link>
