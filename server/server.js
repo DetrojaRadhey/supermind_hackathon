@@ -7,7 +7,24 @@ const cors = require('cors');
 const app = express();
 const server = http.createServer(app);
 
-app.use(cors());
+const allowedOrigins = [
+    'http://localhost:5173', // Local frontend
+    process.env.FRONTEND_URL // Deployed frontend
+];
+
+const corsOptions = {
+    origin: (origin, callback) => {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  };
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.get('/', (req, res) => {
