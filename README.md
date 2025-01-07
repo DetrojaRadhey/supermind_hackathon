@@ -1,5 +1,9 @@
 # Social Media Analyzer using Astra DB and Langflow
 
+**Live Demo**: https://supermind-hackathon-six.vercel.app/
+**Problem explaining and solution Video(YouTube)**: https://www.youtube.com/watch?v=Hc72QnWlcn8&t=16s
+**Demo Video link**: https://youtu.be/fRv3SMbldnA
+
 ## Problem Statement
 
 In today's marketing landscape, analyzing the impact of social media is crucial for businesses and content creators. However, this task can be complex due to the vast amount of data generated across various platforms. The objective of this project is to build a basic analytics module that leverages AI and data analysis tools to provide insights into social media engagement.
