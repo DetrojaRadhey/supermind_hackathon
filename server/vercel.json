@@ -6,19 +6,18 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/",
-      "dest": "server.js"
+      "source": "/",
+      "destination": "/server.js"
     },
     {
-      "src": "/chat",
-      "methods": ["POST"],
-      "dest": "server.js"
+      "source": "/chat",
+      "destination": "/server.js"
     },
     {
-      "src": "/socket.io/(.*)",
-      "dest": "server.js"
+      "source": "/socket.io/(.*)",
+      "destination": "/server.js"
     }
   ],
   "headers": [
