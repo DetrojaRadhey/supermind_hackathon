@@ -8,16 +8,10 @@ const app = express();
 const server = http.createServer(app);
 
 const corsOptions = {
-    origin: (origin, callback) => {
-      if (process.env.FRONTEND_URL == origin && origin) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
-  };
+};
 
 app.use(cors(corsOptions));
 app.use(express.json());

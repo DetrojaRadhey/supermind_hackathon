@@ -13,6 +13,7 @@
     },
     {
       "src": "/chat",
+      "methods": ["POST"],
       "dest": "server.js"
     },
     {
