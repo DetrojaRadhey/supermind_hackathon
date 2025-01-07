@@ -7,19 +7,7 @@ const cors = require('cors');
 const app = express();
 const server = http.createServer(app);
 
-const corsOptions = {
-    origin: (origin, callback) => {
-      if (process.env.FRONTEND_URL == origin && origin) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true,
-  };
-
-app.use(cors(corsOptions));
+app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
