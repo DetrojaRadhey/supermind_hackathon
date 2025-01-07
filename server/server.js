@@ -7,14 +7,9 @@ const cors = require('cors');
 const app = express();
 const server = http.createServer(app);
 
-const allowedOrigins = [
-    'http://localhost:5173', // Local frontend
-    process.env.FRONTEND_URL // Deployed frontend
-];
-
 const corsOptions = {
     origin: (origin, callback) => {
-      if (allowedOrigins.includes(origin) || !origin) {
+      if (process.env.FRONTEND_URL == origin && origin) {
         callback(null, true);
       } else {
         callback(new Error('Not allowed by CORS'));
