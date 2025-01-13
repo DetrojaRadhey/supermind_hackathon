@@ -2,7 +2,7 @@
 
 **Live Demo**: https://supermind-hackathon-frontend.vercel.app/
 
-**Problem explaining and solution Video(YouTube)**: https://www.youtube.com/watch?v=fRv3SMbldnA
+**Problem explaining and solution Video(YouTube)**: [https://www.youtube.com/watch?v=fRv3SMbldnA](https://www.youtube.com/watch?v=Hc72QnWlcn8)
 
 **Demo Video link**: https://youtu.be/fRv3SMbldnA
 
